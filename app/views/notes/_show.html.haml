@@ -13,6 +13,8 @@
 
   %div.note-title
     = preserve do
+      - if note.commit?
+        %a{:href => "diffs#{note.note_id}" "Inline comment:"
       = markdown(note.note)
     - if note.attachment.url
       .right
