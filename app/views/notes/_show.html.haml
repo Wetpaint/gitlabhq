@@ -13,8 +13,8 @@
 
   %div.note-title
     = preserve do
-      - if note.commit?
-        %a{:href => "diffs#{note.note_id}" "Inline comment:"
+      - if note.noteable_type == "MergeRequest"
+        %a{:href => "./#{note.noteable_id}/diffs\##{dom_id(note)}"} Inline comment: 
       = markdown(note.note)
     - if note.attachment.url
       .right
